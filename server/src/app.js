@@ -21,7 +21,7 @@ const app = express();
 // Render sits behind a proxy; needed for correct IPs (rate limiting) and secure cookies
 app.set('trust proxy', 1);
 
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173')
+const allowedOrigins = [process.env.CLIENT_URL,'http://localhost:5173']
   .split(',')
   .map((o) => o.trim().replace(/\/$/, ''))
   .filter(Boolean);
